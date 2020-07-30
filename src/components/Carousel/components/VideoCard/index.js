@@ -9,7 +9,6 @@ export default function VideoCard ({
     categoryColor
 }) {
     const image = `http://img.youtube.com/vi/${getYouTubeId(videoURL)}/hqdefault.jpg`
-    console.log(image)
     return(
         <VideoCardContainer
             url={image}

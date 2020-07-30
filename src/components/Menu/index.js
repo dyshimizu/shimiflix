@@ -1,14 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import Logo from '../../assets/img/ShimiFlix.png'
 import './Menu.css'
 
 export default props => {
     return (
         <nav className="Menu">
-            <a href="/">
+            <Link to="/">
                 <img className="Logo" src={Logo} alt="Logo Shimiflix"></img>
-            </a>
-            <a className="ButtonLink" href="/">Novo Vídeo</a>
+            </Link>
+            <Link className="ButtonLink" to="/cadastro/video">Novo Vídeo</Link>
         </nav>
     )
 }
