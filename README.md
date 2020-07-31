@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Check [my project](https://shimiflix.vercel.app/) in powered by vercel.
+
 ## Available Scripts
 
 In the project directory, you can run:
