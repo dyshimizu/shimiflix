@@ -3,26 +3,20 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../PageDefault';
 import FormField from '../../../FormField';
 import Button from '../../../Button';
+import useForm from '../../../../hooks/useForm';
 
 export default function CadastroCategoria() {
   const initialCategoryValues = {
-    name: '',
+    titulo: '',
     description: '',
     color: '#112233',
   };
 
-  const [category, setCategory] = useState(initialCategoryValues);
+  const {
+    category, handleChange, clearForm,
+  } = useForm(initialCategoryValues);
+
   const [categorias, setCategorias] = useState([]);
-
-  function handleChange(e) {
-    const chave = e.target.getAttribute('name');
-    const { value } = e.target;
-
-    setCategory({
-      ...category,
-      [chave]: value,
-    });
-  }
 
   useEffect(() => {
     const URL_TOP = window.location.hostname.includes('localhost')
@@ -43,7 +37,7 @@ export default function CadastroCategoria() {
     <PageDefault>
       <h1>
         Cadastro de Categoria -
-        {category.name}
+        {category.titulo}
       </h1>
 
       <form onSubmit={(e) => {
@@ -53,15 +47,15 @@ export default function CadastroCategoria() {
           category,
         ]);
 
-        setCategory(initialCategoryValues);
+        clearForm();
       }}
       >
         <div>
           <FormField
             label="Nome da Categoria"
             type="text"
-            value={category.name}
-            name="name"
+            value={category.titulo}
+            name="titulo"
             onChange={handleChange}
           />
         </div>
@@ -99,7 +93,7 @@ export default function CadastroCategoria() {
       <ul>
         {categorias.map((categoria) => (
           <li style={{ color: `${categoria.color}` }} key={categoria.id}>
-            {categoria.name}
+            {categoria.titulo}
             {' '}
             {categoria.description}
           </li>
