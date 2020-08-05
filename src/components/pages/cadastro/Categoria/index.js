@@ -25,7 +25,9 @@ export default function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL_TOP = 'http://localhost:8081/categorias';
+    const URL_TOP = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8081/categorias'
+      : 'https://shimiflix.herokuapp.com/categorias';
 
     fetch(URL_TOP)
       .then(async (respostaServidor) => {
