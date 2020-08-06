@@ -12,7 +12,6 @@ function Home() {
     categoriasRepository.getAllWithVideos()
       .then((categoriasComVideos) => {
         setDadosIniciais(categoriasComVideos);
-        console.log(typeof categoriasComVideos)
       }).catch((err) => {
         console.log(err.message);
       });
